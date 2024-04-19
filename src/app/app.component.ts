@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <app-autocomplete></app-autocomplete>
+  `,
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'syncfusion-angular-autocomplete';
-}
+export class AppComponent {}
+ 

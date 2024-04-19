@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .autocomplete {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #suggestions {
+            position: absolute;
+            width: calc(100% - 2px);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #suggestions li {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        #suggestions li:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+<div class="autocomplete">
+    <input type="text" [(ngModel)]="searchTerm" (input)="fetchSuggestions()" placeholder="Enter your search term">
+    <ul>
+        <li *ngFor="let suggestion of filteredSuggestions">{{ suggestion }}</li>
+    </ul>
+</div>
+
+
+
+</body>
+
+</html>
